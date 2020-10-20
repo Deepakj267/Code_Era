@@ -1,0 +1,33 @@
+//Q5.accept input and print square, if input is not valid print appropiate msg.
+
+using System;
+
+namespace ConsoleA_use_s
+{ 
+    class Program
+    {
+        public static int Main()
+        {
+            string s1;
+            int i1;
+            Console.WriteLine("Emter number for square:");
+            s1 = Console.ReadLine();
+
+            bool b1 = int.TryParse(s1, out i1);
+
+            Console.WriteLine("square is:");
+            if (b1 == true)
+            {
+                int sqr = i1 * i1;
+                Console.WriteLine(sqr);
+                Console.ReadLine();
+            }
+            else
+            {
+                Console.WriteLine("input it not valid enter integer value");
+                Console.ReadLine();
+            }
+            return 0;
+        }
+    }
+}
