@@ -1,0 +1,21 @@
+//accept two string name and concat.
+
+using System;
+
+namespace ConsoleA_use_s
+{ 
+    class Program
+    {
+        public static int Main()
+        {
+            string s1, s2;
+            Console.WriteLine("Emter two strings:");
+
+            s1 = Console.ReadLine();
+            s2 = Console.ReadLine();
+
+            Console.WriteLine(string.Concat(s1, s2));
+            return 0;
+        }
+    }
+}
