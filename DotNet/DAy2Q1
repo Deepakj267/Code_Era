@@ -1,0 +1,32 @@
+//1.accept two number from user and print sum.
+using System;
+
+namespace ConsoleA_use_s
+{ 
+    class Program
+    {
+        public static int Main()
+        {
+            string s1, s2;
+            int a1, a2;
+
+            Console.WriteLine("Enter teo int values");
+
+            s1 = Console.ReadLine();
+            s2 = Console.ReadLine();
+
+            bool i1 = int.TryParse(s1,out a1);
+            bool i2 = int.TryParse(s2,out a2);
+
+            Console.WriteLine("Addition is:");
+            if (i1 == true && i2 == true)
+            {
+                int sum = a1 + a2;
+                Console.WriteLine(sum);
+                Console.ReadLine();
+            }
+
+            return 0;
+        }
+    }
+}
