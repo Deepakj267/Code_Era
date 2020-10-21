@@ -1,0 +1,4 @@
+C:\Users\Priyanka\Documents\Visual Studio 2012\Projects\ClassLibrarylatest\ClassLibrarylatest\bin\Debug\ClassLibrarylatest.dll
+C:\Users\Priyanka\Documents\Visual Studio 2012\Projects\ClassLibrarylatest\ClassLibrarylatest\bin\Debug\ClassLibrarylatest.pdb
+C:\Users\Priyanka\Documents\Visual Studio 2012\Projects\ClassLibrarylatest\ClassLibrarylatest\obj\Debug\ClassLibrarylatest.dll
+C:\Users\Priyanka\Documents\Visual Studio 2012\Projects\ClassLibrarylatest\ClassLibrarylatest\obj\Debug\ClassLibrarylatest.pdb
