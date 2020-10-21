@@ -1,0 +1,28 @@
+//Q6.accept number, stoee in byte, enter 258 ,check what happen? 
+
+
+//Ans:An unhandled exception of type 'System.OverflowException' occurred in mscorlib.dll
+//    Additional information: Value was either too large or too small for an unsigned
+
+
+using System;
+
+namespace ClassLib
+{
+    public class Mymath
+    {
+        public static void Main()
+        {
+            string b;
+            byte i;
+            Console.WriteLine("Enter number to convert into byte");
+            b = Console.ReadLine();
+
+            i = byte.Parse(b);
+
+            Console.WriteLine("following is number after converted into byte:");
+            Console.WriteLine(i);
+            Console.ReadLine();
+        }
+    }
+}
