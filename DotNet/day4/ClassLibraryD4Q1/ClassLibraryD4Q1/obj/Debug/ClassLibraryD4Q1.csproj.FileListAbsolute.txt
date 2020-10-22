@@ -1,0 +1,5 @@
+C:\Users\Priyanka\Documents\Visual Studio 2012\Projects\ClassLibraryD4Q1\ClassLibraryD4Q1\bin\Debug\ClassLibraryD4Q1.dll
+C:\Users\Priyanka\Documents\Visual Studio 2012\Projects\ClassLibraryD4Q1\ClassLibraryD4Q1\bin\Debug\ClassLibraryD4Q1.pdb
+C:\Users\Priyanka\Documents\Visual Studio 2012\Projects\ClassLibraryD4Q1\ClassLibraryD4Q1\obj\Debug\ClassLibraryD4Q1.csprojResolveAssemblyReference.cache
+C:\Users\Priyanka\Documents\Visual Studio 2012\Projects\ClassLibraryD4Q1\ClassLibraryD4Q1\obj\Debug\ClassLibraryD4Q1.dll
+C:\Users\Priyanka\Documents\Visual Studio 2012\Projects\ClassLibraryD4Q1\ClassLibraryD4Q1\obj\Debug\ClassLibraryD4Q1.pdb
