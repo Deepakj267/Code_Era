@@ -1,0 +1,41 @@
+/*
+Q2. Create a class  having two method 
+	1. 1. public int sqr(int n) :this method return square of a number
+	2. public double sqr(int s): this method return cube of a number
+Compile code and observed message given by compiler.
+
+*/
+
+
+
+
+
+using System;
+
+namespace Eightone
+{ 
+      class mymeth
+    {
+        public int sqr(int n)
+        {
+            return n*n;
+        }
+
+        public double sqr(double s)
+        {
+            return s*s;
+        }
+
+    }
+    class program
+    {
+        public static void Main()
+        {
+            mymeth m = new mymeth();
+            Console.WriteLine(m.sqr(5));
+            Console.WriteLine(m.sqr(3.5));
+            Console.Read();
+        }
+    }
+
+}
