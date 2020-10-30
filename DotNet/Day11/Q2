@@ -1,0 +1,57 @@
+/*
+
+Q2.create  a  class having instance  method to find
+a. factorial of a number
+b. square of a number
+c. cube of a number.
+Using delegate  call this method.
+
+*/
+
+using System;
+namespace ConsoleApplication9
+{
+    delegate int mydmath(int n);
+
+      class deldemo
+    {
+        public   int fact(int s)
+        {
+            int i,fact=1;
+            for ( i = 1; i <= s; i++)
+            {
+                { fact = fact * i; }
+
+            } return fact;
+        }
+
+        public   int sqr(int s)
+        {
+            int r = s * s;
+           // Console.WriteLine(r);
+            return r;
+        }
+
+        public   int cube(int c)
+        {
+            int r = c * c * c;
+           // Console.WriteLine(r);
+            return r;
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            deldemo obj = new deldemo();
+            mydmath ms = new mydmath(obj.sqr);
+
+            ms += new mydmath(obj.cube);
+            ms += new mydmath(obj.fact);
+            foreach (mydmath a in ms.GetInvocationList())
+            Console.WriteLine(a.Method + " " + a.Invoke(3));
+
+            Console.Read();
+        }
+    }
+}
