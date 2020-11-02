@@ -1,0 +1,57 @@
+
+/*
+ 3. create class  Employee having member id, name, salary write ToString() method..
+Create a object of employee class and store it in var ,Object and dynamic variable.
+Call tostring method to display data.
+
+ */
+
+using System;
+namespace Deepak
+{
+    class employee
+    {
+        int id;
+
+        public employee(int ide, string name, double sal)
+        {
+            id = ide; Name = name; Salary = sal;
+        }
+
+        public int Id
+        {
+            get { return id; }
+        }
+
+        public String Name
+        {
+            get;
+            set;
+        }
+
+        public double Salary
+        {
+            get;
+            set;
+        }
+
+        public override string ToString()
+        {
+            return Ide + "\t" + Name + "\t" + Salary;
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var v = new employee(1, "abc", 50000);
+            Object o = new employee(2, "pqr", 50000);
+            dynamic d = new employee(3, "xyz", 50000);
+
+            Console.WriteLine(v);
+            Console.WriteLine(o);
+            Console.WriteLine(d);
+            Console.Read();
+        }
+    }
+}
