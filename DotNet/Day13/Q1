@@ -1,145 +1,102 @@
 /*
- * Q1. In your account application add validation for name, -ve balance and
- * insufficient balance and throw exception. 
- * Give appropriate message and handle exception
- */
+Q1. In your account application add validation for 
+name, -ve balance, insufficient balance and throw exception. 
+Give appropriate message and handle exception
+*/
+
 using System;
-namespace Deepak
+namespace deepak
 {
     abstract partial class account
-    { static int gid; int Id; string Name; double Balanceamt; }
-    partial class account
+    {static int getid;int id;string name;double balanceamt;}
+    partial class account   
     {
-        static account()
-        {   Console.WriteLine("ICICI BANK OF INDIA\n\n\n"); }
+        static account (){Console.WriteLine("BANK OF INDIA");}
 
-        public account()
-        { this.Id = ++gid; }
+        public account (){this.id=++getid;}
 
-        public int id
-        { get { return this.Id; } }
+        public int Id{get{return this.id;}}
 
-        public string name
+        public string Name
         {
-            get { return this.Name; }
-            set
-            {
-                if (value.Length < 15)
-                {
-                    this.Name = value;
-                }
-                else
-                {
-                    throw new Exception("name cannot be greater than 15 chars");
-                }
+            get{return this.name;} 
+            set{
+                if(value.Length<15)
+                 this.name=value;
+                else{throw new Exception ("name cannot be greater than 15 chars");}
             }
         }
-        public double balance
-        {
-            get { return this.Balanceamt; }
-            protected set { this.Balanceamt = value; }
-        }
-        public void deposit(int no)
-        {  balance += no;  
-        }
-        public abstract void withdraw(int no);
 
-        public override string ToString()
-        {
-            return  this.Id + "\t" + this.Name + "\t" + this.Balanceamt;
-        }
-    }//end of partial class account
+        public double Balanceamt{get{return this.balanceamt;}protected  set{this.balanceamt=value;}}
 
+        public void deposite(int no){Balanceamt+=no;}
+         public abstract void withdraw(int no); 
 
-    class saving : account
+        public override string ToString(){return this.id+""+this.name+""+this.balanceamt;}
+    }
+    class saving:account
     {
-        public saving(string nm, double bal)
+        public saving(string nm,double bal)
         {
-            if (bal < 0) { throw new Exception("balance can not be zero"); }
-            else
-            {
-                name = nm;
-                balance = bal;
+            if(bal<0)
+            { throw new Exception("balance can not be zero");}
+            else{
+                Name=nm;Balanceamt=bal;
             }
         }
         public override void withdraw(int no)
         {
-            if (no > 0 && (balance - no) >= 1000)
-            {
-                balance -= no;
-            }
-            else
+            if(no > 0 && (Balanceamt-no)>=1000)
+            { Balanceamt -=no;}
+             else
             {
                 throw new Exception("Insufficient balance");
             }
         }
-    }
 
-    class current : account
+    }
+    class current:account
     {
-        public current(string nm, double bal)
-        {
-            name = nm;
-            balance = bal;
-        }
+        public current(string nm,double bal)
+        { Name=nm;Balanceamt=bal;}
+
         public override void withdraw(int no)
         {
-            if (no > 0)
+            if(no > 0 )
+            { Balanceamt -=no;}
+             else
             {
-                balance -= no;
-            }
-            else
-            {
-                throw new Exception("cannot withdraw less than one ");
+                throw new Exception("cannot withdraw less than one");
             }
         }
     }
-    class Program
+    class program
     {
         static void Main(string[] args)
         {
-            account[] arr = new account[3];
-            try
-            {
+            account [] arr=new account[3];
 
-                arr[0] = new saving("xyz", 30000);
-            }
-            catch
-            {
-                Console.WriteLine("inside catch");
-            }
-            try
-            {
+            try{  arr[0]=new saving(" deepak   ",9000);  }     catch{  Console.WriteLine("inside catch");  }
 
-                arr[1] = new current("pqr", 80000);
-            }
-            catch
-            {
-                Console.WriteLine("inside catch 1");
-            }
+            try{  arr[1]=new current(" pradeep  ",10000);  }     catch{  Console.WriteLine("inside catch");  }
 
-            arr[2] = new saving("lmn", 90000);
+            arr[2] = new saving(" Akash    ", 90000);
 
-            for (int i = 0; i < 3; i++)
-            {
-                Console.WriteLine(arr[i]);
-            }
-            Console.WriteLine("\n");
+            Console.WriteLine("\n\nprevius balance\n");
+            for(int i=0;i<arr.Length;i++)
+            { Console.WriteLine(arr[i]); }
 
-            arr[1].deposit(20000);
-            arr[1].withdraw(200);
-            arr[2].deposit(1000);
+            arr[0].withdraw(1000);
+            arr[1].deposite(5000);
+            arr[2].withdraw(10000);
 
-            Console.WriteLine("after update\n");
-
-            for (int i = 0; i < 3; i++)
-            {
-                Console.WriteLine(arr[i]);
-            }
+            Console.WriteLine("\n\nupdated balance\n");
+            for (int i = 0; i < arr.Length; i++)
+            { Console.WriteLine(arr[i]); }
             /*try
             {
-                arr[0].withdraw(100000);
-                Console.WriteLine("\n\nafter withdrawing 1000, remaining bal in 1 is:");
+                arr[0].withdraw(5000);
+                Console.WriteLine("\n\nremaining bal in 1 is:");
                 Console.WriteLine(arr[0]);
             }
             catch
@@ -147,9 +104,9 @@ namespace Deepak
                 Console.WriteLine("\n\nupdate after withdraw:");
                 Console.WriteLine("insufficient Balance");
             }*/
-
             Console.Read();
 
         }
     }
+
 }
