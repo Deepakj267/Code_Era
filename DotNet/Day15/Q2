@@ -1,0 +1,28 @@
+//Q2. Accept 5 element in an array having duplicate value print unique array.
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _15._2
+{
+    class Program
+    {
+
+        static void Main(string[] args)
+        {
+            int[] arr = new int[6] {5,6,4,4,8,5 };
+            HashSet<int> hs = new HashSet<int>();
+            foreach (int i in arr)
+            {
+                hs.Add(i);
+            }
+            foreach (int z in hs)
+            {
+                Console.WriteLine(z + " "); 
+            }
+            Console.Read();
+        }
+    }
+}
