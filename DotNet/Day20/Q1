@@ -1,0 +1,88 @@
+//Q1. Using disconnected architecture perform insert and update delete.
+
+using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Data.SqlClient;
+using System.Data;
+
+namespace Data_Adapter_dataset_xmlConsoleApplication
+{
+    public class Product
+    {
+        string ConnectionString;
+        SqlConnection connection;
+        SqlDataAdapter dataAdapter;
+        DataSet dataset;
+           
+         public void conection()
+        {
+            ConnectionString = ConfigurationManager.ConnectionStrings["DatabaseConnectionString"].ConnectionString;
+            connection = new SqlConnection(ConnectionString);
+            dataset = new DataSet();
+            dataAdapter = new SqlDataAdapter("select * from Product", connection);
+            
+            dataAdapter.FillSchema(dataset, SchemaType.Source, "emp");
+            dataAdapter.Fill(dataset, "emp");
+            DataTable dt = dataset.Tables["emp"];
+
+            foreach (DataRow row in dt.Rows)
+            {
+                foreach (DataColumn col in dt.Columns)
+                    Console.Write(row[col] + "\t\t");
+                Console.WriteLine("");
+            }
+        }
+        
+
+        public void addindataset()
+        {
+
+            DataRow drCurrent = dataset.Tables["emp"].NewRow();
+            drCurrent["Id"] = 101;
+            drCurrent["Name"] = "A";
+            drCurrent["Price"] = 10000;
+            drCurrent["Qty"] = 1;
+
+            dataset.Tables["emp"].Rows.Add(drCurrent);
+            Console.WriteLine("Add was successful, Click any key to continue!!");
+
+            SqlCommandBuilder co = new SqlCommandBuilder(dataAdapter);
+            dataAdapter.Update(dataset, "emp");
+            Console.WriteLine(co.GetInsertCommand().CommandText);
+
+        }
+        public void deletebyid(int id)
+        {
+            DataRow dd = dataset.Tables["emp"].Rows.Find(id);
+            dd.Delete();
+
+            SqlCommandBuilder co = new SqlCommandBuilder(dataAdapter);
+            dataAdapter.Update(dataset, "emp");
+            Console.WriteLine(co.GetDeleteCommand().CommandText);
+        }
+
+        public void updatedata(int id)
+        {
+            DataRow dd = dataset.Tables["emp"].Rows.Find(id);
+            dd["Name"] = "vita";
+
+            SqlCommandBuilder co = new SqlCommandBuilder(dataAdapter);
+            dataAdapter.Update(dataset, "emp");
+            Console.WriteLine(co.GetUpdateCommand().CommandText);
+        }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Product p = new Product();
+            p.conection();
+            p.addindataset(); 
+            p.deletebyid(1010);
+            p.updatedata(2006);
+            Console.ReadLine();
+        }
+    }
+}
